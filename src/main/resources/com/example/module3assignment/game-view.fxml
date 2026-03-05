@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.module3assignment.GameController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="clearButton" text="Clear" onAction="#onClearButtonPress"/>
+        <TextField fx:id="topTextField" prefWidth="220"/>
+        <Button fx:id="refreshButton" text="Refresh" onAction="#onRefreshButtonPress"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <ImageView fx:id="card1" fitWidth="80" fitHeight="120" preserveRatio="true"/>
+        <ImageView fx:id="card2" fitWidth="80" fitHeight="120" preserveRatio="true"/>
+        <ImageView fx:id="card3" fitWidth="80" fitHeight="120" preserveRatio="true"/>
+        <ImageView fx:id="card4" fitWidth="80" fitHeight="120" preserveRatio="true"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Enter an expression:"/>
+        <TextField fx:id="bottomTextField" prefWidth="220"/>
+        <Button fx:id="verifyButton" text="Verify" onAction="#onVerifyButtonPress"/>
+    </HBox>
+
+</VBox>
