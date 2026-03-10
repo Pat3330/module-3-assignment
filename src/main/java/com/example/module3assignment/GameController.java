@@ -10,6 +10,7 @@ public class GameController {
     private int[] cardValues = new int[4];
     // This is where the buttons are stored
 
+
     @FXML
     private Button clearButton;
     @FXML
