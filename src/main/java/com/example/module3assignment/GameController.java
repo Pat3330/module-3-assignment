@@ -131,7 +131,7 @@ public class GameController {
 
 
 
-    // logic to check if the input is a valid arithmetic expression
+    // logic to evaluate the expression
     private double evaluateSolution(String expr) {
         return new Object() {
             int pos = -1, ch;
