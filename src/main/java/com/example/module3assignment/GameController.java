@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 
 public class GameController {
 
+    // This is where the buttons are stored
     private int[] cardValues = new int[4];
     @FXML
     private Button clearButton;
@@ -16,12 +17,13 @@ public class GameController {
     @FXML
     private Button verifyButton;
 
+    // This is where the text fields are stored
     @FXML
     private TextField topTextField;
     @FXML
     private TextField bottomTextField;
 
-
+    // these are where the cards are stored
     @FXML
     private ImageView card1;
     @FXML
@@ -31,6 +33,7 @@ public class GameController {
     @FXML
     private ImageView card4;
 
+    // initialize is called when the controller is loaded
     @FXML
     public void initialize() {
         showCards();
@@ -40,13 +43,13 @@ public class GameController {
     private void onRefreshButtonPress() {
         showCards();
     }
-
+    // clears both text fields
     @FXML
     private void onClearButtonPress() {
         topTextField.setText("");
         bottomTextField.setText("");
     }
-
+    // verifies the input and displays the result in the top text field if it matches 24
     @FXML
     private void onVerifyButtonPress() {
 
@@ -67,7 +70,7 @@ public class GameController {
         if (result == 24){
             topTextField.setText("Correct");
         } else{
-            topTextField.setText("Incorrect");
+            topTextField.setText("Incorrect: " + result);
         }
     }
 
@@ -76,6 +79,7 @@ public class GameController {
         return new Image(getClass().getResourceAsStream("/com/example/module3assignment/PlayingCards/png/" + fileName + ".png"));
     }
 
+    // puts the random cards into the image views
     private void showCards(){
         for (int i = 0; i < 4; i++){
             cardValues[i] = getRandomValue();
@@ -86,6 +90,8 @@ public class GameController {
         card4.setImage(loadCards(getRandomCardFIleName(cardValues[3])));
     }
 
+
+    // generates a random card file name based on the card value and suit
     private String getRandomCardFIleName(int value){
         String[] suits = {"hearts", "clubs", "spades", "diamonds"};
         int suit = (int)(Math.random() * 4);
@@ -93,9 +99,10 @@ public class GameController {
     }
 
     private int getRandomValue() {
-        return (int)(Math.random() * 13) + 1; // 1–13
+        return (int)(Math.random() * 13) + 1;
     }
 
+    // converts the value of the card to a number, checking for special cases
     private String valueToName(int value) {
         return switch (value) {
             case 1 -> "ace";
@@ -105,13 +112,14 @@ public class GameController {
             default -> String.valueOf(value);
         };
     }
-
+    // extracts the numbers from the input string
     private int[] extractNumbers(String expr) {
         return java.util.Arrays.stream(expr.split("[^0-9]+"))
                 .filter(s -> !s.isEmpty())
                 .mapToInt(Integer::parseInt)
                 .toArray();
     }
+    // checks if the input contains the same numbers as the cards
     private boolean usesCorrectNumbers(int[] used) {
         if (used.length != 4) return false;
         int[] sortedUsed = used.clone();
@@ -123,7 +131,7 @@ public class GameController {
 
 
 
-
+    // logic to check if the input is a valid arithmetic expression
     private double evaluateSolution(String expr) {
         return new Object() {
             int pos = -1, ch;
