@@ -7,9 +7,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class GameController {
-
-    // This is where the buttons are stored
     private int[] cardValues = new int[4];
+    // This is where the buttons are stored
+
     @FXML
     private Button clearButton;
     @FXML
